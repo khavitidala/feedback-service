@@ -1,0 +1,32 @@
+# The docker compose here contains all necessary service outside django for development purpose
+name: feedback-service
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: feedback
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - 6732:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - feedback-service_network
+  # redis:
+  #   image: redis:7.4.1
+  #   ports:
+  #     - 7379:6379
+  #   volumes:
+  #     - redis_data:/data
+  #   networks:
+  #     - feedback-service_network
+
+volumes:
+  postgres_data:
+    # redis_data:
+
+
+networks:
+  feedback-service_network:

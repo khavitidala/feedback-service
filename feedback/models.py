@@ -11,6 +11,8 @@ class People(models.Model):
 
 
 class PeopleRatingFeedback(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     people = models.ForeignKey(People, on_delete=models.CASCADE)
     amount = models.PositiveSmallIntegerField()
     feedback = models.TextField(blank=True, null=True)

@@ -31,6 +31,7 @@ ENVIRONMENT = config('ENVIRONMENT', default='production')
 BASE_URL = config('BASE_URL')
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=Csv())
 
 
 # Application definition
